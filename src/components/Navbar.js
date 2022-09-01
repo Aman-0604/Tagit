@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ width: '100%' }}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ width: '100%', borderBottom: "0.5px solid grey" }}>
             <div className="container-fluid" style={{marginRight:"125px", marginLeft:"125px"}}>
                 <a className="navbar-brand" href="/"><img src="../tagit_logo.png" alt="" width="30" height="24" className="d-inline-block align-text-top" /></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
