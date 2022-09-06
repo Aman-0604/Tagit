@@ -8,9 +8,9 @@ Step 1 : -> Make a new folder on your desktop or under any other folder\
          -> Type `git clone <paste the url of that git repositry> <(optional - the name you want to give)>`\
         (for ex- git clone https://github.com/tensorflow/tensorflow.git)\
         (this downloads all the history of that repo)\
-         -> `git status` to check the status of the repo\
+         -> `git status` to check the status of the repo
 
-Step 2 : -> Type `npm run start` or `npm start` to start the app\
+Step 2 : -> Type `npm run start` or `npm start` to start the app
 
 
 
