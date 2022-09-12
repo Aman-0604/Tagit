@@ -11,8 +11,8 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <div className='d-flex'>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2 form-control-sm" type="search" placeholder="&#128269; Search" aria-label="Search" style={{width:"225px",background:"transparent",border:"1px solid #808080",color:"whitesmoke"}}/>
+                            <form className="d-flex" role="search">
+                                <input className="form-control me-2 form-control-sm" type="search" placeholder="&#128269; Search" aria-label="Search" style={{width:"225px",background:"transparent",border:"1px solid #808080",color:"whitesmoke"}}/>
                             </form>
                         </ul>
                     </div>

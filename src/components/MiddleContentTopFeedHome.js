@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Middle_Content_Top_Feed_Home() {
+export default function MiddleContentTopFeedHome() {
   return (
     <div className="main-feed d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "-10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
       <div className="sub_feed-1 d-flex flex-row ">
