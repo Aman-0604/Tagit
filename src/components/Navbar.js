@@ -53,12 +53,6 @@ export default function Navbar() {
                                 </ul>
                             </li>
                         </ul>
-                        {/* {!localStorage.getItem('token') ? <div className="d-flex">
-                            <Link to="/login"><button type="button" className="btn" style={{ backgroundColor: "#7532F9", color: "white" }}>Login</button></Link>
-                            <Link to="/signup"><button type="button" className="btn" style={{ backgroundColor: "#7532F9", color: "white" }}>SignUp</button></Link>
-                        </div> : <div className="d-flex">
-                            <Link className='dropdown-item' to="/login"><button type="button" onClick={logoutHandler} className="btn" style={{ backgroundColor: "#7532F9", color: "white" }}>Logout</button></Link>
-                        </div>} */}
                     </div>
                 </div>
             </div>

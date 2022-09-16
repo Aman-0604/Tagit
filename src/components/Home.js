@@ -28,7 +28,7 @@ export default function Home() {
       <div className="left_home_container d-flex justify-content-center" style={{ width: "20%", height: "300px", padding: "10px", margin: "15px 10px", borderRadius: "10px", backgroundColor: "#212529", position: "sticky", top: "9%" }}>
         <LeftContentHome />
       </div>
-      <div className="middle_home_container d-flex flex-column justify-content-center" style={{ width: "55%", padding: "10px", margin: "15px 10px" }}>
+      <div className="middle_home_container d-flex flex-column" style={{ width: "55%", padding: "10px", margin: "15px 10px" }}>
         <MiddleContentTopFeedHome />
         <div>
           {posts.map((post) => {
