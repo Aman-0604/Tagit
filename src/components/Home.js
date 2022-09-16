@@ -6,7 +6,7 @@ import RightContentHome from './RightContentHome';
 
 export default function Home() {
   return (
-    <div className='container d-flex flex-row justify-content-center' style={{width:"85%",marginTop:"60px"}}>
+    <div className='container d-flex flex-row justify-content-center' style={{width:"85%",marginTop:"25px"}}>
         <div className="left_home_container d-flex justify-content-center" style={{width: "20%",height:"300px",padding:"10px",margin:"15px 10px",borderRadius:"10px",backgroundColor:"#212529",position:"sticky",top:"9%"}}>
             <LeftContentHome/>
         </div>
