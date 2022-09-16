@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Feed() {
+
+export default function Feed(props) {
     return (
         <div className="feed-area d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
             <div className="card" style={{ backgroundColor: "#212529", border: "none" }}>
@@ -25,7 +26,7 @@ export default function Feed() {
                         </div>
                     </div>
                     <div className="description-area my-2">
-                        <p className="card-text">This is my productivity desktop. You need to like this post otherwise I will unfollow you.🥺</p>
+                        <p className="card-text">{props.description}</p>
                     </div>
                     <div className="image-area my-3">
                         <img src="../images/sample_image.jpg" className="card-img-top d-block" alt="..." />

@@ -15,11 +15,13 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Alert from './components/Alert';
 import AlertState from './context/alerts/AlertState';
+import PostState from './context/posts/PostState';
 
 function App() {
   return (
     <>
     {/* Every component and the components inside them too will get access to the NoteState context. */}
+    <PostState>
       <AlertState>
         <BrowserRouter>
           <Navbar/>
@@ -36,6 +38,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </AlertState>
+    </PostState>
     </>
   );
 }
