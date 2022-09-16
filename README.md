@@ -1,13 +1,13 @@
 # Steps to perform after entering to this repository
 
 ## Note : Make sure you have installed git in your desktop (git and github are different)
-Step 1 : -> Make a new folder on your desktop or under any other folder
-         -> Note : Name of folder should not be tagit
-         -> Open VS Code in that folder (open terminal by clicking the above Terminal option and click new terminal)
-         -> Type `git init`
-         -> Type `git clone <paste the url of that git repositry> <(optional - the name you want to give)>`
-        (for ex- git clone https://github.com/tensorflow/tensorflow.git)
-        (this downloads all the history of that repo)
+Step 1 : -> Make a new folder on your desktop or under any other folder\
+         -> Note : Name of folder should not be tagit\
+         -> Open VS Code in that folder (open terminal by clicking the above Terminal option and click new terminal)\
+         -> Type `git init`\
+         -> Type `git clone <paste the url of that git repositry> <(optional - the name you want to give)>`\
+        (for ex- git clone https://github.com/tensorflow/tensorflow.git)\
+        (this downloads all the history of that repo)\
          -> `git status` to check the status of the repo
 
 Step 2 : -> Type `npm run start` or `npm start` to start the app
