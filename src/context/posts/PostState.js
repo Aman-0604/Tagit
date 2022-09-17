@@ -22,18 +22,19 @@ const PostState = (props) => {
   }
 
   //                                                                    Add a post
-  const addPost = async (title, description, tag) => {
+  const addPost = async (description) => {
     // API Calls
     let url = `${host}/api/posts/addPosts`;
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({title,description,tag}),//will convert the object into type JSON
+      body: JSON.stringify({description}),//will convert the object into type JSON
       headers: {
         "auth-token": localStorage.getItem("token"),
         "Content-Type": "application/json"
       }
     });
     const post = await response.json();
+    console.log(post);
     setPosts(posts.concat(post)); //concat returns an array whereas push updates an array
   }
 

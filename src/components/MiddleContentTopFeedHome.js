@@ -1,6 +1,29 @@
-import React from 'react'
+import React, { useState,useRef, useContext } from 'react'
+import postContext from '../context/posts/postContext';
+import alertContext from '../context/alerts/alertContext';
+
 
 export default function MiddleContentTopFeedHome() {
+        
+  const alert_available = useContext(alertContext);
+  const {showAlert}=alert_available;
+
+  const [description, setDescription] = useState(null);
+  const closeModal_ui = useRef(null);
+
+  const posts_available = useContext(postContext);
+  const { addPost } = posts_available;
+
+  const onChange = (e) => {
+    setDescription(e.target.value );// post ko hi update kar dega(... ka matlab) 
+  }
+  const submitPostHandler = (e) => {
+    e.preventDefault();//so that page does not gets loaded
+    addPost(description);
+    console.log(description);
+    closeModal_ui.current.click();
+    showAlert("success", "Posted Successfuly");
+  }
   return (
     <div className="main-feed d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "-10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
       <div className="sub_feed-1 d-flex flex-row ">
@@ -13,18 +36,18 @@ export default function MiddleContentTopFeedHome() {
           {/* Modal */}
           <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
-              <div className="modal-content" style={{backgroundColor:"#212529"}}>
-                <div className="modal-header" style={{borderBottomColor: "rgba(255, 255, 255, 0.55)"}}>
-                  <h5 className="modal-title" id="exampleModalLabel" style={{color:"rgba(255, 255, 255, 0.55)"}}>Start a post</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div className="modal-content" style={{ backgroundColor: "#212529" }}>
+                <div className="modal-header" style={{ borderBottomColor: "rgba(255, 255, 255, 0.55)" }}>
+                  <h5 className="modal-title" id="exampleModalLabel" style={{ color: "rgba(255, 255, 255, 0.55)" }}>Start a post</h5>
+                  <button ref={closeModal_ui} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div className="modal-body" style={{color: "rgba(255, 255, 255, 0.55)"}} >
-                  {/* TODO */}
-                  Kar bhi de start 
+                <div className="modal-body" style={{ color: "rgba(255, 255, 255, 0.55)" }} >
+                  <div className="input-group">
+                    <textarea className="form-control" onChange={onChange} name='description' placeholder="Type something" style={{ backgroundColor: "#212529", borderColor: "rgba(255, 255, 255, 0.55)", color: "rgba(255, 255, 255, 0.55)" }}></textarea>
+                  </div>
                 </div>
-                <div className="modal-footer" style={{borderTopColor: "rgba(255, 255, 255, 0.55)"}}>
-                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save changes</button>
+                <div className="modal-footer" style={{ borderTopColor: "rgba(255, 255, 255, 0.55)" }}>
+                  <button type="button" onClick={submitPostHandler} className="btn" style={{ color: "white", backgroundColor: "#212529", borderColor: "rgba(255, 255, 255, 0.55)" }}>Post</button>
                 </div>
               </div>
             </div>

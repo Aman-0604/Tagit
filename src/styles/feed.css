@@ -1,0 +1,11 @@
+.bi-three-dots:hover{
+    cursor: pointer;
+}
+li{
+    list-style: none;
+}
+.delete-post:hover{
+    cursor: pointer;
+}
+
+

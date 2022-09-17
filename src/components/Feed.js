@@ -1,11 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import '../styles/feed.css';
+import postContext from '../context/posts/postContext';
+
 
 
 export default function Feed(props) {
+ 
+
+    const posts_available = useContext(postContext);
+    const { deletePost } = posts_available;
+
+    const deletePostHandler = (e) => {
+        e.preventDefault();//so that page does not gets loaded
+        deletePost(props.id);
+    }
     return (
         <div className="feed-area d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
             <div className="card" style={{ backgroundColor: "#212529", border: "none" }}>
                 <div className="card-body">
+                    <div className="options d-flex flex-row justify-content-between align-items-center" style={{ height: "0px" }}>
+                        <div className="person-reaction"><strong>Katrina Kaif</strong> liked this post.</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-three-dots" viewBox="0 0 16 16" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                    </div>
+                    <hr />
+                    <div className="collapse" id="collapseExample" style={{ zIndex: "1", backgroundColor: "#212529" }}>
+                        <div className="card card-body form-text" style={{ backgroundColor: "#212529", border: "0.5px solid rgba(255, 255, 255, 0.55)", color: "rgba(255, 255, 255, 0.55)" }}>
+                            <ul>
+                                <li onClick={deletePostHandler} className='delete-post'>Delete</li>
+                                <li>Save</li>
+                                <li>Report</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div className="user-info d-flex flex-row justify-content-between">
                         <div className=' d-flex flex-row '>
                             <div className="profile_picture_circle d-flex justify-content-center align-items-center" style={{ width: '50px', height: '50px', marginLeft: "5px", border: '0.5px solid grey', borderRadius: '50px' }}>
