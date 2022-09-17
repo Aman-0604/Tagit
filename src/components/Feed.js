@@ -5,7 +5,7 @@ import postContext from '../context/posts/postContext';
 
 
 export default function Feed(props) {
- 
+
 
     const posts_available = useContext(postContext);
     const { deletePost } = posts_available;
@@ -25,15 +25,22 @@ export default function Feed(props) {
                         </svg>
                     </div>
                     <hr />
-                    <div className="collapse" id="collapseExample" style={{ zIndex: "1", backgroundColor: "#212529" }}>
-                        <div className="card card-body form-text" style={{ backgroundColor: "#212529", border: "0.5px solid rgba(255, 255, 255, 0.55)", color: "rgba(255, 255, 255, 0.55)" }}>
+                    <div className="dropdown-options collapse" id='collapseExample'>
+                        <ul>
+                            <li onClick={deletePostHandler} className='delete-post'>Delete</li>
+                            <li>Save</li>
+                            <li>Report</li>
+                        </ul>
+                    </div>
+                    {/* <div className="collapse" id="collapseExample" style={{ zIndex: "1", backgroundColor: "#212529" }}>
+                        <div className="collapse card card-body form-text" style={{ backgroundColor: "#212529", border: "0.5px solid rgba(255, 255, 255, 0.55)", color: "rgba(255, 255, 255, 0.55)" }}>
                             <ul>
                                 <li onClick={deletePostHandler} className='delete-post'>Delete</li>
                                 <li>Save</li>
                                 <li>Report</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="user-info d-flex flex-row justify-content-between">
                         <div className=' d-flex flex-row '>
                             <div className="profile_picture_circle d-flex justify-content-center align-items-center" style={{ width: '50px', height: '50px', marginLeft: "5px", border: '0.5px solid grey', borderRadius: '50px' }}>
