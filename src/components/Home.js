@@ -1,3 +1,4 @@
+import "../styles/home.css"
 import React, { useEffect, useContext } from 'react'
 import Feed from './Feed';
 import LeftContentHome from './LeftContentHome';
@@ -24,11 +25,11 @@ export default function Home() {
   }, [])//[]means sirf ek baar yeh function chalega
   let post_number = 0;
   return (
-    <div className='container d-flex flex-row justify-content-center' style={{ width: "85%", marginTop: "25px" }}>
-      <div className="left_home_container d-flex justify-content-center" style={{ width: "20%", height: "300px", padding: "10px", margin: "15px 10px", borderRadius: "10px", backgroundColor: "#212529", position: "sticky", top: "9%" }}>
+    <div className='container flex-row justify-content-center' >
+      <div className="left_home_container justify-content-center" >
         <LeftContentHome />
       </div>
-      <div className="middle_home_container d-flex flex-column" style={{ width: "55%", padding: "10px", margin: "15px 10px" }}>
+      <div className="middle_home_container flex-column" >
         <MiddleContentTopFeedHome />
         <div>
           {posts.map((post) => {
@@ -37,7 +38,7 @@ export default function Home() {
           })}
         </div>
       </div>
-      <div className="right_home_container d-flex justify-content-center" style={{ width: "25%", height: "500px", padding: "10px", margin: "15px 10px", borderRadius: "10px", backgroundColor: "#212529", position: "sticky", top: "9%" }}>
+      <div className="right_home_container justify-content-center" >
         <RightContentHome />
       </div>
     </div>

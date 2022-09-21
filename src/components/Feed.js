@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
 import '../styles/feed.css';
+import React, { useContext } from 'react'
 import postContext from '../context/posts/postContext';
 
 
