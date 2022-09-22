@@ -17,7 +17,7 @@ export default function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style={{ width: '100%', borderBottom: "0.5px solid grey" }}>
-            <div className="container-fluid" style={{ marginRight: "125px", marginLeft: "125px" }}>
+            <div className="container-fluid">
                 <Link className="navbar-brand" to="/"><img src="../tagit_logo.png" alt="" width="30" height="24" className="d-inline-block align-text-top" /></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

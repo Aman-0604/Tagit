@@ -1,3 +1,16 @@
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: #31373c;
+}
+
+.container-fluid {
+    margin-right: 125px;
+    margin-left: 125px;
+}
+/* Media Queries */
+@media screen and (max-width: 991px){
+    .container-fluid{
+        margin:0px;
+        margin-left: 15px;
+    }
+    
 }
