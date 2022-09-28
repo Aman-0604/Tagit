@@ -1,3 +1,7 @@
+# Here is a view of Tagit
+
+<img alt="Tagit" src="./public/images/screenshot.png">
+
 # Steps to perform after entering to this repository
 
 ## Note : Make sure you have installed git in your desktop (git and github are different)
