@@ -47,7 +47,7 @@ export default function Navbar() {
                             <li className="nav-item dropdown">
                                 <Link className={`nav-link dropdown-toggle ${location.pathname === "/profile" ? "active" : ""}`} style={{ fontSize: "18px" }} to="/profile" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</Link>
                                 <ul className="dropdown-menu" style={{backgroundColor: "#212529"}}>
-                                    <li><Link className="dropdown-item" to="/" style={{color : "white"}}>View Profile</Link></li>
+                                    <li><Link className="dropdown-item" to="/profile" style={{color : "white"}}>View Profile</Link></li>
                                     <li><Link className="dropdown-item" to="/" style={{color : "white"}}>Settings</Link></li>
                                     <li><hr className="dropdown-divider"/></li>
                                     <li><Link className='dropdown-item' to="/login"><button type="button" onClick={logoutHandler} className="btn" style={{ backgroundColor: "#212529", color: "white", marginLeft:"-10px" }}>Logout</button></Link></li>

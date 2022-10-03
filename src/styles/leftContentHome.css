@@ -1,0 +1,16 @@
+*{
+    color: white;
+}
+.profile_picture_circle_left_content_home {
+    width: 70px;
+    height: 70px;
+    margin-left: 5px;
+    border: 0.5px solid grey;
+    border-radius: 50px;
+}
+
+.profile_picture_circle_left_content_home img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
