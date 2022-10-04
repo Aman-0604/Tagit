@@ -1,11 +1,10 @@
 import '../styles/feed.css';
 import React, { useContext } from 'react'
 import postContext from '../context/posts/postContext';
-
+import userContext from '../context/users/userContext';
 
 
 export default function Feed(props) {
-
 
     const posts_available = useContext(postContext);
     const { deletePost } = posts_available;
@@ -14,6 +13,14 @@ export default function Feed(props) {
         e.preventDefault();//so that page does not gets loaded
         deletePost(props.id);
     }
+
+    const user_detail = useContext(userContext);
+    const { user, getUser } = user_detail;
+    const getUserDetails = () => {
+        getUser();
+        return user;//returning and array
+    }
+    
     return (
         <div className="feed-area d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
             <div className="card" style={{ backgroundColor: "#212529", border: "none" }}>
@@ -47,7 +54,7 @@ export default function Feed(props) {
                                 <img src="../sample_dp.jpg" alt="" style={{ width: '50px', height: '50px', borderRadius: '50px' }} />
                             </div>
                             <div className="user-status mx-2">
-                                <h5 style={{ marginBottom: "0%" }}>Aman Gupta</h5>
+                                <h5 style={{ marginBottom: "0%" }}>{getUserDetails().name}</h5>
                                 <p>DTU'25 || Web Developer || MERN Stack</p>
                             </div>
                         </div>
