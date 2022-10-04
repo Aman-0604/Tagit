@@ -1,6 +1,7 @@
 import "../styles/leftContentHome.css"
 import React, { useContext } from 'react'
 import userContext from '../context/users/userContext';
+import { Link } from "react-router-dom";
 
 export default function LeftContentHome() {
   const user_detail = useContext(userContext);
@@ -24,8 +25,8 @@ export default function LeftContentHome() {
           <p style={{color: "#A0A2A4",fontSize: "14px", textAlign:"center" }}>{getUserDetails().status}</p>
         </div>
         <div className="profile_options_menu">
-          <p style={{ textAlign:"center" }}><a href="/">My Posts</a></p>
-          <p style={{ textAlign:"center" }}><a href="/">Saved items</a></p>
+          <p style={{ textAlign:"center" }}><Link to="/profile">My Posts</Link></p>
+          <p style={{ textAlign:"center" }}><Link to="/">Saved items</Link></p>
         </div>
       </div>
     </>

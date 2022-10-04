@@ -6,7 +6,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Scope from './components/Scope';
 import Community from './components/Community';
 import Notification from './components/Notification';
 import Chat from './components/Chat';
@@ -30,7 +29,6 @@ function App() {
               <Alert />
               <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/scope" element={<Scope />} />
                 <Route exact path="/community" element={<Community />} />
                 <Route exact path="/notification" element={<Notification />} />
                 <Route exact path="/chat" element={<Chat />} />

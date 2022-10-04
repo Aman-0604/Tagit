@@ -33,7 +33,7 @@ export default function Navbar() {
                     <div className='d-flex'>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname === "/scope" ? "active" : ""}`} style={{ fontSize: "18px" }} to="/scope">Scope</Link>
+                                <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} style={{ fontSize: "18px" }} to="/">Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === "/community" ? "active" : ""}`} style={{ fontSize: "18px" }} to="/community">Community</Link>
