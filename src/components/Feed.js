@@ -55,7 +55,7 @@ export default function Feed(props) {
                             </div>
                             <div className="user-status mx-2">
                                 <h5 style={{ marginBottom: "0%" }}>{getUserDetails().name}</h5>
-                                <p>DTU'25 || Web Developer || MERN Stack</p>
+                                <p>{getUserDetails().status}</p>
                             </div>
                         </div>
                         <div>

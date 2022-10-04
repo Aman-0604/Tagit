@@ -21,7 +21,7 @@ export default function LeftContentHome() {
         </div>
         <div className="user-status mx-2 my-2 d-flex flex-column align-items-center">
           <p style={{ marginBottom: "0%", color: "white", fontSize: "18px" }}>{getUserDetails().name}</p>
-          <p style={{color: "#A0A2A4",fontSize: "14px", textAlign:"center" }}>DTU'25 || Web Developer || MERN Stack</p>
+          <p style={{color: "#A0A2A4",fontSize: "14px", textAlign:"center" }}>{getUserDetails().status}</p>
         </div>
         <div className="profile_options_menu">
           <p style={{ textAlign:"center" }}><a href="/">My Posts</a></p>

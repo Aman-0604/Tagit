@@ -35,7 +35,7 @@ export default function Profile() {
         </div>
         <div className="user-intro mx-2 d-flex flex-column align-items-center">
           <p style={{ marginBottom: "0%", color: "white", fontSize: "25px" }}>{getUserDetails().name}</p>
-          <p style={{ color: "#A0A2A4", fontSize: "18px", textAlign: "center" }}>DTU'25 || Web Developer || MERN Stack</p>
+          <p style={{ color: "#A0A2A4", fontSize: "18px", textAlign: "center" }}>{getUserDetails().status}</p>
         </div>
       </div>
       <div className='container parentProfile flex-column align-items-center' style={{ color: "white", marginTop: "15px" }}>
