@@ -1,6 +1,13 @@
 *{
     color: white;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: #A0A2A4;
+}
 .profile_picture_circle_left_content_home {
     width: 70px;
     height: 70px;

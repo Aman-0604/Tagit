@@ -1,7 +1,11 @@
 import "../styles/leftContentHome.css"
-import React from 'react'
+import React, { useContext } from 'react'
+import postContext from '../context/posts/postContext';
 
 export default function LeftContentHome() {
+  const posts_available = useContext(postContext);
+  const { posts } = posts_available;
+
   return (
     <>
       <div className="parent_container_left_content_home d-flex flex-column align-items-center">
@@ -16,8 +20,8 @@ export default function LeftContentHome() {
           <p style={{color: "#A0A2A4",fontSize: "14px", textAlign:"center" }}>DTU'25 || Web Developer || MERN Stack</p>
         </div>
         <div className="profile_options_menu">
-          <p style={{ textAlign:"center" }}>My Posts</p>
-          <p style={{ textAlign:"center" }}>Saved items</p>
+          <p style={{ textAlign:"center" }}><a href="/">My Posts</a></p>
+          <p style={{ textAlign:"center" }}><a href="/">Saved items</a></p>
         </div>
       </div>
     </>

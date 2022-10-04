@@ -21,7 +21,6 @@ export default function MiddleContentTopFeedHome() {
   const submitPostHandler = (e) => {
     e.preventDefault();//so that page does not gets loaded
     addPost(description);
-    console.log(description);
     closeModal_ui.current.click();
     showAlert("success", "Posted Successfuly");
   }
