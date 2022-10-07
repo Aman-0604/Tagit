@@ -1,24 +1,22 @@
 import '../styles/feed.css';
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import postContext from '../context/posts/postContext';
 import userContext from '../context/users/userContext';
 
 
 export default function Feed(props) {
-
+    const user_detail = useContext(userContext);
+    const { user, getUser } = user_detail;
+    useEffect(() => {
+        getUser();
+        // eslint-disable-next-line
+    }, [])//[]means sirf ek baar yeh function chalega
     const posts_available = useContext(postContext);
     const { deletePost } = posts_available;
 
     const deletePostHandler = (e) => {
         e.preventDefault();//so that page does not gets loaded
         deletePost(props.id);
-    }
-
-    const user_detail = useContext(userContext);
-    const { user, getUser } = user_detail;
-    const getUserDetails = () => {
-        getUser();
-        return user;//returning and array
     }
     
     return (
@@ -54,8 +52,8 @@ export default function Feed(props) {
                                 <img src="../sample_dp.jpg" alt="" style={{ width: '50px', height: '50px', borderRadius: '50px' }} />
                             </div>
                             <div className="user-status mx-2">
-                                <h5 style={{ marginBottom: "0%" }}>{getUserDetails().name}</h5>
-                                <p>{getUserDetails().status}</p>
+                                <h5 style={{ marginBottom: "0%" }}>{user.name}</h5>
+                                <p>{user.status}</p>
                             </div>
                         </div>
                         <div>

@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      console.log(localStorage.getItem('token'));
+      // console.log(localStorage.getItem('token'));
       getPosts();
     }
     else {

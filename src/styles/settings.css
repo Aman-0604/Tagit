@@ -1,0 +1,40 @@
+*{
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: #A0A2A4;
+}
+.parentSettings{
+    background-color: #212529;
+    width: 570px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.self-posts-settings{
+    display: flex;
+    width: 585px;
+    padding: 10px;
+}
+.profile_picture_circle_settings_section {
+    position: relative;
+    bottom: 45px;
+    width: 90px;
+    height: 90px;
+    margin-left: 5px;
+    border: 0.5px solid grey;
+    border-radius: 50px;
+}
+
+.profile_picture_circle_settings_section img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+}
+
+.user-intro-settings{
+    margin-top: -30px;
+}

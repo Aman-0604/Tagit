@@ -16,6 +16,7 @@ import Alert from './components/Alert';
 import AlertState from './context/alerts/AlertState';
 import PostState from './context/posts/PostState';
 import UserState from './context/users/UserState';
+import Settings from './components/Settings';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 <Route exact path="/notification" element={<Notification />} />
                 <Route exact path="/chat" element={<Chat />} />
                 <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/settings" element={<Settings />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
               </Routes>

@@ -17,7 +17,7 @@ const PostState = (props) => {
       }
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     setPosts(json);
   }
 
@@ -34,7 +34,7 @@ const PostState = (props) => {
       }
     });
     const post = await response.json();
-    console.log(post);
+    // console.log(post);
     setPosts(posts.concat(post)); //concat returns an array whereas push updates an array
   }
 

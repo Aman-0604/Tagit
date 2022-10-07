@@ -8,18 +8,16 @@ import postContext from '../context/posts/postContext';
 export default function Profile() {
   const user_detail = useContext(userContext);
   const { user, getUser } = user_detail;
-  const getUserDetails = () => {
-    getUser();
-    return user;//returning and array
-  }
+  
   const posts_available = useContext(postContext);
   const { posts, getPosts } = posts_available;
   let navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      console.log(localStorage.getItem('token'));
+      // console.log(localStorage.getItem('token'));
       getPosts();
+      getUser();
     }
     else {
       navigate("/login");
@@ -34,12 +32,12 @@ export default function Profile() {
           <img src="../sample_dp.jpg" alt="profilePicture" />
         </div>
         <div className="user-intro mx-2 d-flex flex-column align-items-center">
-          <p style={{ marginBottom: "0%", color: "white", fontSize: "25px" }}>{getUserDetails().name}</p>
-          <p style={{ color: "#A0A2A4", fontSize: "18px", textAlign: "center" }}>{getUserDetails().status}</p>
+          <p style={{ marginBottom: "0%", color: "white", fontSize: "25px" }}>{user.name}</p>
+          <p style={{ color: "#A0A2A4", fontSize: "18px", textAlign: "center" }}>{user.status}</p>
         </div>
       </div>
       <div className='container parentProfile flex-column align-items-center' style={{ color: "white", marginTop: "15px" }}>
-        <p>Your Posts</p>
+        <div>Your Posts</div>
       </div>
       <div className='container self-posts flex-column' style={{ color: "white", marginTop: "-5px" }}>
         <div>

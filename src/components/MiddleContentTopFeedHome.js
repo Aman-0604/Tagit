@@ -1,13 +1,15 @@
 import "../styles/middleContentTopFeedHome.css"
-import React, { useState,useRef, useContext } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import postContext from '../context/posts/postContext';
 import alertContext from '../context/alerts/alertContext';
 
 
 export default function MiddleContentTopFeedHome() {
-        
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const alert_available = useContext(alertContext);
-  const {showAlert}=alert_available;
+  const { showAlert } = alert_available;
 
   const [description, setDescription] = useState(null);
   const closeModal_ui = useRef(null);
@@ -16,7 +18,7 @@ export default function MiddleContentTopFeedHome() {
   const { addPost } = posts_available;
 
   const onChange = (e) => {
-    setDescription(e.target.value );// post ko hi update kar dega(... ka matlab) 
+    setDescription(e.target.value);// post ko hi update kar dega(... ka matlab) 
   }
   const submitPostHandler = (e) => {
     e.preventDefault();//so that page does not gets loaded
@@ -45,6 +47,25 @@ export default function MiddleContentTopFeedHome() {
                   <div className="input-group">
                     <textarea className="form-control" onChange={onChange} name='description' placeholder="Type something" style={{ backgroundColor: "#212529", borderColor: "rgba(255, 255, 255, 0.55)", color: "rgba(255, 255, 255, 0.55)" }}></textarea>
                   </div>
+                  {/* Uploading image starts */}
+                  <div className="my-2 mx-2">
+                    <p style={{ color: "rgba(255, 255, 255, 0.55)" }}>Upload an image</p>
+                    {selectedImage && (
+                      <div>
+                        <img alt="Not Found" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+                        <br />
+                        <button onClick={() => setSelectedImage(null)} style={{color:"white",backgroundColor:"#212529",border:"0.8px solid white",borderRadius:"8px"}}>Remove</button>
+                      </div>
+                    )}
+                    <br />
+                    <br />
+                    <input type="file" name="myImage" onChange={(event) => {
+                      console.log(event.target.files[0]);
+                      setSelectedImage(event.target.files[0]);
+                    }}
+                    />
+                  </div>
+                  {/* Uploading image ends */}
                 </div>
                 <div className="modal-footer" style={{ borderTopColor: "rgba(255, 255, 255, 0.55)" }}>
                   <button type="button" onClick={submitPostHandler} className="btn" style={{ color: "white", backgroundColor: "#212529", borderColor: "rgba(255, 255, 255, 0.55)" }}>Post</button>
