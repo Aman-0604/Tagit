@@ -52,7 +52,7 @@ export default function Settings() {
                 </div>
                 <div className="input-group mb-3" style={{border:"none"}}>
                     <span className="input-group-text" id="basic-addon3" style={{backgroundColor:"#4a4a4a",border:"none",color:"white"}}>college</span>
-                    <textarea value="" onChange={handleUpChange} type="text" className="form-control" placeholder="college" rows="1" aria-label="college" aria-describedby="basic-addon3" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
+                    <textarea value={user.college} onChange={handleUpChange} type="text" className="form-control" placeholder="college" rows="1" aria-label="college" aria-describedby="basic-addon3" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
                 </div>
             </div>
             <div className='container parentSettings flex-row align-items-center justify-content-center' style={{ color: "white", marginTop: "15px" }}>

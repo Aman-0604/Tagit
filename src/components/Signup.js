@@ -4,7 +4,7 @@ import alertContext from '../context/alerts/alertContext';
 
 export default function Signup() {
     let navigate = useNavigate();
-    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", status: "" });
+    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", status: "",college:"" });
 
     const alert_available = useContext(alertContext);
     const {showAlert}=alert_available;
@@ -20,7 +20,7 @@ export default function Signup() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, status: credentials.status })//will convert the object into type JSON
+            body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, status: credentials.status,college: credentials.college })//will convert the object into type JSON
         });
         const json = await response.json();
         console.log(json);
@@ -51,6 +51,10 @@ export default function Signup() {
                     <label htmlFor="exampleInputPassword1" className="form-label" style={{color: "white"}}><h5>Password</h5></label>
                     <input type="password" className="form-control" name="password" id="password" value={credentials.password} onChange={onChange} />
                     <div id="password" className="form-text">Enter a strong password.</div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label" style={{color: "white"}}><h5>College</h5></label>
+                    <input type="college" className="form-control" name="college" id="college" value={credentials.college} onChange={onChange} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label" style={{color: "white"}}><h5>Status</h5></label>

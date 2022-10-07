@@ -1,12 +1,16 @@
 import '../styles/feed.css';
-import React, { useContext,useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import postContext from '../context/posts/postContext';
 import userContext from '../context/users/userContext';
+import alertContext from '../context/alerts/alertContext';
 
 
 export default function Feed(props) {
     const user_detail = useContext(userContext);
     const { user, getUser } = user_detail;
+
+    const alert_available = useContext(alertContext);
+    const { showAlert } = alert_available;
     useEffect(() => {
         getUser();
         // eslint-disable-next-line
@@ -17,8 +21,9 @@ export default function Feed(props) {
     const deletePostHandler = (e) => {
         e.preventDefault();//so that page does not gets loaded
         deletePost(props.id);
+        showAlert("danger", "Post Deleted");
     }
-    
+
     return (
         <div className="feed-area d-flex flex-column justify-content-center" style={{ width: "100%", marginTop: "10px", padding: "10px", borderRadius: "10px", backgroundColor: "#212529", color: "white" }}>
             <div className="card" style={{ backgroundColor: "#212529", border: "none" }}>
