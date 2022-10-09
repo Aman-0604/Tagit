@@ -21,7 +21,7 @@ import Settings from './components/Settings';
 function App() {
   return (
     <>
-      {/* Every component and the components inside them too will get access to the NoteState context. */}
+      {/* Every component and the components inside them too, will get access to the UserState context. */}
       <UserState>
         <PostState>
           <AlertState>
