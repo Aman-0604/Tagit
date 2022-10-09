@@ -57,38 +57,8 @@ const PostState = (props) => {
     setPosts(newPosts);
   }
 
-  //                                                                   Update a post
-  const updatePost = async (id, title, description, tag) => {
-    // API Calls
-    let url = `${host}/api/posts/updatePosts/${id}`;
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token")
-      },
-      body: JSON.stringify({ title, description, tag })
-    });
-    const json = await response.json();
-    console.log(json);
-
-    let newPosts=JSON.parse(JSON.stringify(posts));
-    // Logic to update
-    for (let index = 0; index < newPosts.length; index++) {
-      const element = newPosts[index];
-      if (element._id === id) {
-        newPosts[index].title = title;
-        newPosts[index].description = description;
-        newPosts[index].tag = tag;
-        break;
-      }
-    }
-    setPosts(newPosts);
-  }
-
-
   return (
-    <postContext.Provider value={{ posts, addPost, deletePost, updatePost, getPosts }}>
+    <postContext.Provider value={{ posts, addPost, deletePost, getPosts }}>
       {props.children}
     </postContext.Provider>
   )

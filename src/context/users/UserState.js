@@ -5,6 +5,7 @@ const UserState = (props) => {
   const host = "http://localhost:8000";
   let userItem = [];
   const [user, setUser] = useState(userItem);
+
   //                                                                   Get user details
   const getUser = async () => {
     // API Calls
@@ -20,8 +21,32 @@ const UserState = (props) => {
     // console.log(json);
     setUser(json);
   }
+
+  //                                                                   Update user details
+  const updateUser = async (status, college) => {
+    // API Calls
+    let url = `${host}/api/auth/updateUser`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token")
+      },
+      body: JSON.stringify({ status, college })
+    });
+    const json = await response.json();
+    // console.log(json);
+    const newUser = json;
+
+    // Logic to update
+    newUser.status = status;
+    newUser.college = college;
+    
+    setUser(newUser);
+  }
+
   return (
-    <userContext.Provider value={{ user, getUser }}>
+    <userContext.Provider value={{ user, getUser, updateUser }}>
       {props.children}
     </userContext.Provider>
   )

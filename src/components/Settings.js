@@ -1,13 +1,18 @@
 import "../styles/settings.css"
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Feed from './Feed';
 import userContext from '../context/users/userContext';
 import postContext from '../context/posts/postContext';
+import alertContext from '../context/alerts/alertContext';
+
 
 export default function Settings() {
+    const alert_available = useContext(alertContext);
+    const {showAlert}=alert_available;
+
     const user_detail = useContext(userContext);
-    const { user, getUser } = user_detail;
+    const { user, getUser, updateUser } = user_detail;
 
     const posts_available = useContext(postContext);
     const { posts, getPosts } = posts_available;
@@ -25,11 +30,23 @@ export default function Settings() {
         // eslint-disable-next-line
     }, [])//[]means sirf ek baar yeh function chalega
 
-    // const [text, setText] = useState("");
-    const handleUpChange = (event) => {
-        // setText(event.target.value)
+    const [userStatus, setUserStatus] = useState("");
+    const [userCollege, setUserCollege] = useState("");
+
+    const handleUpChangeStatus = (event) => {
+        setUserStatus(event.target.value);
+        updateUser(userStatus,userCollege);
+        showAlert("success", "Updated Successfuly");
     }
+    
+    const handleUpChangeCollege = (event) => {
+        setUserCollege(event.target.value);
+        updateUser(userStatus,userCollege);
+        showAlert("success", "Updated Successfuly");
+    }
+
     let post_number = 0;
+
     return (
         <>
             <div className='container parentSettings flex-column align-items-center' style={{ color: "white", marginTop: "60px" }}>
@@ -48,11 +65,11 @@ export default function Settings() {
                 </div>
                 <div className="input-group mb-3" style={{border:"none"}}>
                     <span className="input-group-text" id="basic-addon2" style={{backgroundColor:"#4a4a4a",border:"none",color:"white"}}>status</span>
-                    <textarea value={user.status} onChange={handleUpChange} type="text" className="form-control" placeholder={user.status} rows="1" aria-label="status" aria-describedby="basic-addon2" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
+                    <textarea value={userStatus} onChange={handleUpChangeStatus} type="text" className="form-control" placeholder={user.status} rows="1" aria-label="status" aria-describedby="basic-addon2" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
                 </div>
                 <div className="input-group mb-3" style={{border:"none"}}>
                     <span className="input-group-text" id="basic-addon3" style={{backgroundColor:"#4a4a4a",border:"none",color:"white"}}>college</span>
-                    <textarea value={user.college} onChange={handleUpChange} type="text" className="form-control" placeholder="college" rows="1" aria-label="college" aria-describedby="basic-addon3" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
+                    <textarea value={userCollege} onChange={handleUpChangeCollege} type="text" className="form-control" placeholder={user.college} rows="1" aria-label="college" aria-describedby="basic-addon3" style={{backgroundColor:"#5c5c5c",border:"none",color:"white"}}></textarea>
                 </div>
             </div>
             <div className='container parentSettings flex-row align-items-center justify-content-center' style={{ color: "white", marginTop: "15px" }}>
