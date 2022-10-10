@@ -86,7 +86,7 @@ export default function MiddleContentTopFeedHome() {
                     <br />
                     <br />
                     <input type="file" onChange={(event) => { setImageUpload(event.target.files[0]); }} />
-                    <button onClick={uploadImage}>Upload Image</button>
+                    <button onClick={uploadImage} style={{color:"black", border:"none"}}>Upload Image</button>
                   </div>
                   {/* Uploading image ends */}
                 </div>
