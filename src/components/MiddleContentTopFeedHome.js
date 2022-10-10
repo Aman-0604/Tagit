@@ -1,17 +1,20 @@
 import "../styles/middleContentTopFeedHome.css"
-import React, { useState, useRef, useContext } from 'react'
+import React, { useState, useRef, useContext, useEffect } from 'react'
 import postContext from '../context/posts/postContext';
 import alertContext from '../context/alerts/alertContext';
-
-
+import { storage } from '../firebase';
+import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage'
+import { v4 } from 'uuid';
 export default function MiddleContentTopFeedHome() {
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
 
   const alert_available = useContext(alertContext);
   const { showAlert } = alert_available;
 
   const [description, setDescription] = useState(null);
+  const [imgUrl, setImgUrl] = useState(null);
   const closeModal_ui = useRef(null);
 
   const posts_available = useContext(postContext);
@@ -20,12 +23,37 @@ export default function MiddleContentTopFeedHome() {
   const onChange = (e) => {
     setDescription(e.target.value);// post ko hi update kar dega(... ka matlab) 
   }
+
+  const imageListRef = ref(storage, "posts/");
+  const uploadImage = () => {
+    showAlert("info", "Wait till the image gets uploaded");
+    if (imageUpload === null) return;
+    const imageRef = ref(storage, `posts/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      showAlert("success", "Image Uploaded");
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImgUrl(url);
+        // console.log(imgUrl);
+        // console.log(url);
+        setImageUrls((prev) => [...prev, url]);
+      });
+    });
+  }
   const submitPostHandler = (e) => {
     e.preventDefault();//so that page does not gets loaded
-    addPost(description);
+    addPost(description,imgUrl);
     closeModal_ui.current.click();
     showAlert("success", "Posted Successfuly");
   }
+  useEffect(() => {
+    listAll(imageListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    })
+  }, [])
   return (
     <div className="main-feed d-flex flex-column justify-content-center" >
       <div className="sub_feed-1 d-flex flex-row ">
@@ -50,20 +78,15 @@ export default function MiddleContentTopFeedHome() {
                   {/* Uploading image starts */}
                   <div className="my-2 mx-2">
                     <p style={{ color: "rgba(255, 255, 255, 0.55)" }}>Upload an image</p>
-                    {selectedImage && (
+                    {imageUpload && (
                       <div>
-                        <img alt="Not Found" width={"250px"} src={URL.createObjectURL(selectedImage)} />
-                        <br />
-                        <button onClick={() => setSelectedImage(null)} style={{color:"white",backgroundColor:"#212529",border:"0.8px solid white",borderRadius:"8px"}}>Remove</button>
+                        <img alt="Not Found" width={"250px"} src={URL.createObjectURL(imageUpload)} />
                       </div>
                     )}
                     <br />
                     <br />
-                    <input type="file" name="myImage" onChange={(event) => {
-                      console.log(event.target.files[0]);
-                      setSelectedImage(event.target.files[0]);
-                    }}
-                    />
+                    <input type="file" onChange={(event) => { setImageUpload(event.target.files[0]); }} />
+                    <button onClick={uploadImage}>Upload Image</button>
                   </div>
                   {/* Uploading image ends */}
                 </div>
