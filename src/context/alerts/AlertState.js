@@ -8,10 +8,10 @@ const AlertState = (props) => {
             theme: type,
             message: display
         })
-        console.log(alert);
+        // console.log(alert);
         setTimeout(() => {
             setAlert(null)
-        }, 2000);
+        }, 3000);
     }
 
     return (

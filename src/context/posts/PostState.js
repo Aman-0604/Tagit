@@ -22,12 +22,12 @@ const PostState = (props) => {
   }
 
   //                                                                    Add a post
-  const addPost = async (description) => {
+  const addPost = async (description,imgUrl) => {
     // API Calls
     let url = `${host}/api/posts/addPosts`;
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({description}),//will convert the object into type JSON
+      body: JSON.stringify({description,imgUrl}),//will convert the object into type JSON
       headers: {
         "auth-token": localStorage.getItem("token"),
         "Content-Type": "application/json"

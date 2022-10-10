@@ -74,7 +74,7 @@ export default function Feed(props) {
                         <p className="card-text">{props.description}</p>
                     </div>
                     <div className="image-area my-3">
-                        <img src="../images/sample_image.jpg" className="card-img-top d-block" alt="..." />
+                        <img src={props.imgUrl} className="card-img-top d-block" alt="Not Found" />
                     </div>
                     <div className="reaction-section my-2 d-flex flex-row justify-content-evenly align-items-center" style={{ paddingTop: "2.5%", borderTop: "0.5px solid grey" }}>
                         <div className='d-flex flex-row'>
