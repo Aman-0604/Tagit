@@ -43,7 +43,7 @@ function App() {
         </PostState>
       </UserState>
     </>
-  );
+  ); 
 }
 
 export default App;
