@@ -23,7 +23,7 @@ const UserState = (props) => {
   }
 
   //                                                                   Update user details
-  const updateUser = async (status, college) => {
+  const updateUser = async (status, college, profileUrl) => {
     // API Calls
     let url = `${host}/api/auth/updateUser`;
     const response = await fetch(url, {
@@ -32,7 +32,7 @@ const UserState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem("token")
       },
-      body: JSON.stringify({ status, college })
+      body: JSON.stringify({ status, college, profileUrl })
     });
     const json = await response.json();
     // console.log(json);
@@ -41,7 +41,8 @@ const UserState = (props) => {
     // Logic to update
     newUser.status = status;
     newUser.college = college;
-    
+    newUser.profileUrl = profileUrl;
+
     setUser(newUser);
   }
 

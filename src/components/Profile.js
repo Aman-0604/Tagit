@@ -18,6 +18,7 @@ export default function Profile() {
       // console.log(localStorage.getItem('token'));
       getPosts();
       getUser();
+      // console.log(user.profileUrl);
     }
     else {
       navigate("/login");
@@ -29,7 +30,7 @@ export default function Profile() {
     <>
       <div className='container parentProfile flex-column align-items-center' style={{ color: "white", marginTop: "60px" }}>
         <div className="profile_picture_circle_profile_section d-flex justify-content-center align-items-center">
-          <img src="../sample_dp.jpg" alt="profilePicture" />
+          <img src={user.profileUrl} alt="profilePicture" />
         </div>
         <div className="user-intro mx-2 d-flex flex-column align-items-center">
           <p style={{ marginBottom: "0%", color: "white", fontSize: "25px" }}>{user.name}</p>

@@ -54,7 +54,7 @@ export default function Feed(props) {
                     <div className="user-info d-flex flex-row justify-content-between">
                         <div className=' d-flex flex-row '>
                             <div className="profile_picture_circle d-flex justify-content-center align-items-center" style={{ width: '50px', height: '50px', marginLeft: "5px", border: '0.5px solid grey', borderRadius: '50px' }}>
-                                <img src="../sample_dp.jpg" alt="" style={{ width: '50px', height: '50px', borderRadius: '50px' }} />
+                                <img src={user.profileUrl} alt="profilePicture" style={{ width: '50px', height: '50px', borderRadius: '50px' }} />
                             </div>
                             <div className="user-status mx-2">
                                 <h5 style={{ marginBottom: "0%" }}>{user.name}</h5>

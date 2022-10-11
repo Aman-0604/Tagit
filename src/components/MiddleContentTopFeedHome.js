@@ -1,11 +1,14 @@
 import "../styles/middleContentTopFeedHome.css"
 import React, { useState, useRef, useContext, useEffect } from 'react'
 import postContext from '../context/posts/postContext';
+import userContext from '../context/users/userContext';
 import alertContext from '../context/alerts/alertContext';
 import { storage } from '../firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage'
 import { v4 } from 'uuid';
 export default function MiddleContentTopFeedHome() {
+  const user_detail = useContext(userContext);
+  const { user, getUser } = user_detail;
 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
@@ -46,6 +49,7 @@ export default function MiddleContentTopFeedHome() {
     showAlert("success", "Posted Successfuly");
   }
   useEffect(() => {
+    getUser();
     listAll(imageListRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
@@ -58,7 +62,7 @@ export default function MiddleContentTopFeedHome() {
     <div className="main-feed d-flex flex-column justify-content-center" >
       <div className="sub_feed-1 d-flex flex-row ">
         <div className="profile_picture_circle d-flex justify-content-center align-items-center">
-          <img src="../sample_dp.jpg" alt="profilePicture" />
+          <img src={user.profileUrl} alt="profilePicture" />
         </div>
         <div className="share_post_box d-flex justify-content-center align-items-center">
           <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-outline-secondary" style={{ padding: "7px", width: "100%", borderRadius: "30px", border: '0.5px solid grey' }}>Start a post</button>
