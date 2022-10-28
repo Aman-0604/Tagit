@@ -159,7 +159,7 @@ export default function Settings() {
                     {posts.map((post) => {
                         post_number += 1;
                         return <Feed key={post_number} note_number={post_number} description={post.description} imgUrl={post.imgUrl} id={post._id} />
-                    })}
+                    }).reverse()}
                 </div>
             </div>
         </>
